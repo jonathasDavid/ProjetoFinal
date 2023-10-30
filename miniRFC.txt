@@ -19,7 +19,9 @@ As palavras-chave usadas neste protocolo são as seguintes:
 - #aleatorio: Seleciona uma categoria aleatória.
 - #next: Pula para a próxima pergunta.
 - #pulos: Consulta a quantidade de pulos disponíveis.
-- #restart: Reinicia o jogo.
+- #restart: Reinicia o jogo a qualquer momento
+- #novojogo começa um novo jogo
+
 
 3. Sintaxe e Semântica
 
