@@ -480,9 +480,9 @@ public class ServerTeste {
                     }
                 }
 
-                out.println("Você acertou " + score + " perguntas! Deseja jogar novamente? (Digite #reiniciar para jogar novamente ou #sair para sair)");
+                out.println("Você acertou " + score + " perguntas! Deseja jogar novamente? (Digite #novojogo para jogar novamente ou #sair para sair)");
                 String clientResponse = in.readLine();
-                if (clientResponse.equals("#reiniciar")) {
+                if (clientResponse.equals("#novojogo")) {
                     usedQuestionIndexes.clear();  // Limpa as perguntas usadas para o novo jogo
                     score = 0;  // Zera a pontuação para o novo jogo
                     run();
