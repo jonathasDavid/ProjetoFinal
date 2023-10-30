@@ -257,14 +257,14 @@ public class ServerTeste {
             "Ratatouille",
             "Kung Fu Panda",
             "Carros",
-            "Monstros S.A",
+            "Monstros SA",
             "O Bom Gigante Amigo",
             "Princesa Mononoke",
             "Os Pinguins de Madagascar",
             "Shrek",
             "Avioes",
             "Os Incriveis",
-            "Monstros S.A.",
+            "Monstros SA.",
             "Frozen: Uma Aventura Congelante",
             "A Pequena Sereia",
             "Coraline e o Mundo Secreto",
@@ -277,7 +277,7 @@ public class ServerTeste {
             "Wall-E",
             "O Estranho Mundo de Jack",
             "Kung Fu Panda",
-            "Tá Chovendo Hamburguer"
+            "Ta Chovendo Hamburguer"
             // Adicione mais respostas para as perguntas sobre anos de filmes (em minúsculas)
     };
 
@@ -455,7 +455,7 @@ public class ServerTeste {
                     if (clientResponse != null && clientResponse.toLowerCase().equals(answers[questionIndex].toLowerCase())) {
                         score++;
 
-                    }else if (clientResponse.equals("#disconect")) {
+                    }else if (clientResponse.equals(COMMAND_DISCONECT)) {
                         out.println("Você escolheu sair. Desconectando...");
                         out.close();
                         in.close();
@@ -480,7 +480,25 @@ public class ServerTeste {
                     }
                 }
 
-                clientOut.println("Você acertou " + score + " perguntas!");
+                out.println("Você acertou " + score + " perguntas! Deseja jogar novamente? (Digite #reiniciar para jogar novamente ou #sair para sair)");
+                String clientResponse = in.readLine();
+                if (clientResponse.equals("#reiniciar")) {
+                    usedQuestionIndexes.clear();  // Limpa as perguntas usadas para o novo jogo
+                    score = 0;  // Zera a pontuação para o novo jogo
+                    run();
+                } else if (clientResponse.equals("#sair")) {
+                    out.println("Você escolheu sair. Desconectando...");
+                    out.close();
+                    in.close();
+                    clientSocket.close();
+                    return;  // Sai do loop e desconecta o cliente
+                } else {
+                    out.println("Comando inválido. Desconectando...");
+                    out.close();
+                    in.close();
+                    clientSocket.close();
+                    return;
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
@@ -491,6 +509,7 @@ public class ServerTeste {
                     e.printStackTrace();
                 }
                 out.println("Connection closed for client: " + clientSocket.getInetAddress().getHostAddress());
+
             }
         }
         private synchronized int getUniqueQuestionIndex(int arrayLength) {
