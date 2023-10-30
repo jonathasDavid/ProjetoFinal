@@ -1,0 +1,52 @@
+Mini RFC - Protocolo de Jogo de Quiz
+
+1. Introdução
+
+Este mini RFC descreve o protocolo utilizado no serviço de jogo de quiz. O serviço oferece uma série de funcionalidades para os jogadores, permitindo-lhes participar de um jogo de perguntas e respostas em diversas categorias.
+
+2. Palavras-Chave
+
+As palavras-chave usadas neste protocolo são as seguintes:
+- #help: Consulta informações sobre os protocolos disponíveis.
+- #iniciar: Inicia o jogo.
+- #sair: Sai do jogo no menu.
+- #cat: Consulta as categorias disponíveis.
+- #disconnect: Sai do jogo durante a partida.
+- #romance: Seleciona a categoria de romance.
+- #terror: Seleciona a categoria de terror.
+- #acao: Seleciona a categoria de ação.
+- #animacao: Seleciona a categoria de animação.
+- #aleatorio: Seleciona uma categoria aleatória.
+- #next: Pula para a próxima pergunta.
+- #pulos: Consulta a quantidade de pulos disponíveis.
+- #restart: Reinicia o jogo.
+
+3. Sintaxe e Semântica
+
+- Todas as palavras-chave são precedidas por '#' e devem ser digitadas pelos jogadores no chat do jogo.
+- A palavra-chave #help fornece informações sobre os protocolos disponíveis.
+- A palavra-chave #iniciar inicia o jogo.
+- A palavra-chave #sair permite que o jogador saia do jogo enquanto estiver no menu principal.
+- A palavra-chave #cat consulta as categorias disponíveis e exibe uma lista.
+- A palavra-chave #disconnect permite que o jogador saia do jogo durante a partida e retorne ao menu.
+- As palavras-chave #romance, #terror, #acao e #animacao permitem que o jogador escolha uma categoria específica.
+- A palavra-chave #aleatorio permite que o jogador selecione uma categoria aleatória.
+- A palavra-chave #next pula para a próxima pergunta.
+- A palavra-chave #pulos consulta a quantidade de pulos disponíveis para o jogador.
+- A palavra-chave #restart reinicia o jogo a partir do menu principal.
+
+4. Exemplos
+
+- Para consultar informações sobre os protocolos disponíveis, digite: #help
+- Para iniciar o jogo, digite: #iniciar
+- Para sair do jogo no menu, digite: #sair
+- Para consultar as categorias disponíveis, digite: #cat
+- Para sair do jogo durante a partida, digite: #disconnect
+- Para selecionar a categoria de romance, digite: #romance
+- Para pular para a próxima pergunta, digite: #next
+- Para consultar a quantidade de pulos disponíveis, digite: #pulos
+- Para reiniciar o jogo, digite: #restart
+
+5. Conclusão
+
+Este mini RFC define o protocolo para o serviço de jogo de quiz, descrevendo as palavras-chave, sua sintaxe e semântica. Os jogadores podem usar essas palavras-chave para interagir com o serviço e desfrutar de um jogo de perguntas e respostas em várias categorias.
