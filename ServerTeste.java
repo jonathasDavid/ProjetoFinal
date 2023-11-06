@@ -529,12 +529,12 @@ public class ServerTeste {
                         run();
 
                     }else if (clientResponse.equals("#score")){
-                        out.println("Sua pontuação é " + score);
+                        out.println("Sua pontuação é " + score + " pontos, digite ENTER para continuar");
                         continue;
                     }
                 }
 
-                out.println("Você acertou " + score + " perguntas! Deseja jogar novamente? (Digite #novojogo# para jogar novamente ou #sair para sair)");
+                out.println("Você acertou " + score + " perguntas! Deseja jogar novamente? (Digite #novojogo para jogar novamente ou #sair para sair)");
                 String clientResponse = in.readLine();
                 if (clientResponse.equals("#novojogo")) {
                     usedQuestionIndexes.clear();  // Limpa as perguntas usadas para o novo jogo
