@@ -17,6 +17,7 @@ As palavras-chave usadas neste protocolo são as seguintes:
 - #acao: Seleciona a categoria de ação.
 - #animacao: Seleciona a categoria de animação.
 - #aleatorio: Seleciona uma categoria aleatória.
+- #starwars: Seleciona a categoria starwars.
 - #next: Pula para a próxima pergunta.
 - #pulos: Consulta a quantidade de pulos disponíveis.
 - #restart: Reinicia o jogo a qualquer momento
