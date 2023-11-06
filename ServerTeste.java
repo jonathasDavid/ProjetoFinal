@@ -347,14 +347,65 @@ public class ServerTeste {
             // Adicione mais respostas para as perguntas sobre anos de filmes (em minúsculas)
     };
 
+    private static final String[] QUESTIONS_STAR = {
+            "Quem é o protagonista da trilogia original de Star Wars?",
+            "Qual é o nome da nave espacial famosa pilotada por Han Solo?",
+            "Quem é o mestre Jedi de Obi-Wan Kenobi?",
+            "Qual é o lado da Força que representa o poder do bem em Star Wars?",
+            "Qual é o nome do planeta natal de Darth Vader?",
+            "Quem é o mentor de Darth Vader?",
+            "Qual é a arma dos Jedi e Sith, que é um sabre de luz?",
+            "Quem é o co-piloto peludo de Han Solo na Millennium Falcon?",
+            "Qual é o nome do planeta onde Yoda vive?",
+            "Qual é a organização maligna liderada por Darth Sidious?",
+            "Qual é o nome do planeta gelado onde Rey encontra Luke Skywalker em 'O Despertar da Força'?",
+            "Quem é o pai de Luke Skywalker?",
+            "Qual é a nave espacial usada pelos rebeldes para destruir a Estrela da Morte?",
+            "Quem é o mestre Jedi de Yoda?",
+            "Qual é o nome do caçador de recompensas mandaloriano na série de TV 'The Mandalorian'?",
+            "Qual é o nome do planeta natal de Chewbacca?",
+            "Quem é o general da Resistência em 'Os Últimos Jedi'?",
+            "Qual é a frase icônica dita por Darth Vader em 'O Império Contra-Ataca'?",
+            "Qual é a habilidade da Força que permite que os Jedi sintam os sentimentos dos outros?",
+            "Quem é o criador dos droides R2-D2 e C-3PO?"
+            // Adicione mais perguntas sobre anos de filmes conforme necessário
+    };
+
+
+
+    private static final String[] ANSWERS_STAR = {
+            "Luke Skywalker.",
+            "Millennium Falcon.",
+            "QuiGon Jinn.",
+            "O lado da Luz.",
+            "Tatooine.",
+            "Imperador Palpatine.",
+            "Sabre de luz.",
+            "Chewbacca.",
+            "Dagobah.",
+            "O Imperio Galactico",
+            "AhchTo.",
+            "Anakin Skywalker",
+            "Millennium Falcon.",
+            "QuiGon Jinn.",
+            "The Mandalorian",
+            "Kashyyyk.",
+            "Leia Organa.",
+            "Eu sou seu pai.",
+            "Empatia.",
+            "Anakin Skywalker"
+            // Adicione mais respostas para as perguntas sobre anos de filmes (em minúsculas)
+    };
+
 
     private static final String COMMAND_HELP = "#help";
     private static final String COMMAND_START = "#iniciar";
     private static final String COMMAND_EXIT = "#sair";
-
     private static final String COMMAND_CAT = "#cat";
-
     private static final String COMMAND_DISCONECT = "#disconect";
+    private static final String COMMAND_NEXT = "#next";
+
+
 
     private static List<PrintWriter> clients = Collections.synchronizedList(new ArrayList<>());
 
@@ -379,7 +430,7 @@ public class ServerTeste {
                     clientSocket.close();
                     break;
                 }else if (COMMAND_HELP.equals(clientInputt)) {
-                    out.println("Comandos disponíveis: " + COMMAND_START + ", " + COMMAND_CAT + ", " + COMMAND_HELP + ", " + COMMAND_EXIT  + ", " + "#next");
+                    out.println("Comandos disponíveis: " + COMMAND_START + ", " + COMMAND_CAT + ", " + COMMAND_HELP + ", " + COMMAND_EXIT  + ", " + COMMAND_NEXT);
                     String clienteInputeDois = in.readLine();
                     if(clienteInputeDois.equals(COMMAND_START)){
                         new ClientHandler(clientSocket, out).start();
@@ -415,7 +466,7 @@ public class ServerTeste {
             try (BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                  PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {
 
-                out.println("Escolha qual categoria ROMANCE, TERROR, AÇÃO, ANIMAÇÃO, ALEATÓRIO");
+                out.println("Escolha qual categoria ROMANCE, TERROR, AÇÃO, ANIMAÇÃO, ALEATÓRIO, STARWARS");
                 // Receber escolha do cliente
                 String choice = in.readLine();
                 String[] questions;
@@ -437,6 +488,9 @@ public class ServerTeste {
                 } else if ("#aleatorio".equals(choice) ) {
                     questions = QUESTIONS_ALEATORIO;
                     answers = ANSWERS_ALEATORIO;
+                }else if ("#starwars".equals(choice) ) {
+                    questions = QUESTIONS_STAR;
+                    answers = ANSWERS_STAR;
                 }else {
                     // Categoria inválida, encerrar a conexão
                     clientOut.println("Escolha de categoria inválida. A conexão será encerrada.");
@@ -480,7 +534,7 @@ public class ServerTeste {
                     }
                 }
 
-                out.println("Você acertou " + score + " perguntas! Deseja jogar novamente? (Digite #novojogo para jogar novamente ou #sair para sair)");
+                out.println("Você acertou " + score + " perguntas! Deseja jogar novamente? (Digite #novojogo# para jogar novamente ou #sair para sair)");
                 String clientResponse = in.readLine();
                 if (clientResponse.equals("#novojogo")) {
                     usedQuestionIndexes.clear();  // Limpa as perguntas usadas para o novo jogo
