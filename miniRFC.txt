@@ -19,6 +19,7 @@ As palavras-chave usadas neste protocolo são as seguintes:
 - #aleatorio: Seleciona uma categoria aleatória.
 - #starwars: Seleciona a categoria starwars.
 - #next: Pula para a próxima pergunta.
+- #score: Mostra a quantidade de pontos.
 - #pulos: Consulta a quantidade de pulos disponíveis.
 - #restart: Reinicia o jogo a qualquer momento
 - #novojogo começa um novo jogo
